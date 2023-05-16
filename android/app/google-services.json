@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "276946415563",
+    "project_id": "instagramfirebase-e804d",
+    "storage_bucket": "instagramfirebase-e804d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276946415563:android:1245e6b7906bea7aec104e",
+        "android_client_info": {
+          "package_name": "com.example.fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIM-npeCpP8TzrK1T4PQWwR5dA4nl8rmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276946415563:android:65ea4d9931e26992ec104e",
+        "android_client_info": {
+          "package_name": "com.example.my_instagram_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIM-npeCpP8TzrK1T4PQWwR5dA4nl8rmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276946415563:android:eb96b0682ce3de20ec104e",
+        "android_client_info": {
+          "package_name": "com.example.my_instagram_app_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIM-npeCpP8TzrK1T4PQWwR5dA4nl8rmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276946415563-9nms6t09ejvrf06amp0irglmlo6kliu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
