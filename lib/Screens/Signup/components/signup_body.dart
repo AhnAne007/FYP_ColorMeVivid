@@ -144,7 +144,7 @@ class _SignUpBodyState extends State<SignUpBody> {
             ),
             AlreadyHaveAnAccountCheck(
               press: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) {

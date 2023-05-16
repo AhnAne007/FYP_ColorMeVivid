@@ -97,7 +97,7 @@ class _LogInBodyState extends State<LogInBody> {
                       password: _passwordController.text);
                   if (res == "Success") {
                     ClearFields();
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) {

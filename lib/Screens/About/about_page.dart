@@ -24,39 +24,6 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.amberAccent,
-      //   title: Text("Color Me vivid",style: TextStyle(color: Colors.black),),
-      //   iconTheme: IconThemeData(color: Colors.black),
-      // ),
-      // body:Container(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       Container(
-      //         // margin: EdgeInsets.symmetric(horizontal: 70,vertical: 0),
-      //           child:
-      //           Center(
-      //             child: Text("Hellow from About",
-      //             ),
-      //           )
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      // drawer: Drawer(
-      //   backgroundColor: Colors.yellow[50],
-      //   child: SingleChildScrollView(
-      //     child: Container(
-      //       child: Column(
-      //         children: [
-      //           MyHeaderDrawer(),
-      //           MyDrawerList(context),
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // ),
       body: Stack(
         children: [
           PageView(
@@ -111,7 +78,7 @@ class _AboutPageState extends State<AboutPage> {
                                   ),
                                 ))),
                             onPressed: () {
-                              Navigator.push(
+                              Navigator.pop(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {

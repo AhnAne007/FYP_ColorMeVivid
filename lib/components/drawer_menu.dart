@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:fyp/Resources/auth_methods.dart';
+import 'package:fyp/Resources/authentication_state.dart';
+import 'package:fyp/Screens/Login/login_screen.dart';
 
 import '../Screens/About/about_page.dart';
 import '../Screens/Home/home_screen.dart';
@@ -16,7 +19,7 @@ Widget MyDrawerList(BuildContext context) {
           leading: Icon(Icons.home),
           title: Text("Home"),
           onTap: () {
-            Navigator.push(
+            Navigator.pop(
               context,
               MaterialPageRoute(
                 builder: (context) {
@@ -52,6 +55,23 @@ Widget MyDrawerList(BuildContext context) {
                 },
               ),
             );
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: Text("LogOut"),
+          onTap: () async {
+            String res = await AuthMethods().loginOut();
+            if (res == "Success") {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LogInScreen();
+                  },
+                ),
+              );
+            }
           },
         ),
       ],

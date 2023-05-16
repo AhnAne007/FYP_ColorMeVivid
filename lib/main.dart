@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:fyp/Resources/authentication_state.dart';
 import 'package:fyp/Screens/About/about_page.dart';
 import 'package:fyp/Screens/Designer/designer_body.dart';
 import 'package:fyp/Screens/Home/home_screen.dart';
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
               borderSide: BorderSide.none,
             ),
           )),
-      home: LogInScreen(),
+      home: Authenticate(),
     );
   }
 }
