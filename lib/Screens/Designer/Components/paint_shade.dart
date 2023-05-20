@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/Screens/Designer/paint_options.dart';
+import 'package:fyp/Screens/Designer/design_options.dart';
 
 class PaintShade extends StatefulWidget {
   const PaintShade({super.key, required this.paintCode, required this.onTap});
@@ -16,7 +16,7 @@ class _PaintShadeState extends State<PaintShade> {
     return GestureDetector(
       onTap: (){
         widget.onTap();
-        paintObj.selectedShade = widget.paintCode;
+        designObj.selectedShade = widget.paintCode;
         },
       child: Column(
           children:[

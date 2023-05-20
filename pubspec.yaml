@@ -53,6 +53,7 @@ dependencies:
   image_size_getter: ^2.1.2
   http: ^0.13.5
   path_provider: ^2.0.14
+  google_fonts: ^4.0.4
   matrix_gesture_detector:
     git:
       url: https://github.com/besttechguru/matrix_gesture_detector.git

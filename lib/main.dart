@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fyp/Resources/authentication_state.dart';
 import 'package:fyp/Screens/About/about_page.dart';
 import 'package:fyp/Screens/Designer/designer_body.dart';
@@ -9,11 +10,15 @@ import 'package:fyp/Screens/Login/login_screen.dart';
 import 'package:fyp/splash_screen.dart';
 import 'Screens/Welcome/welcome_screen.dart';
 import 'constants.dart';
-
-
+import 'package:fyp/Screens/Designer/design_options.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  designObj.start();
+  SystemChrome.setEnabledSystemUIOverlays([]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent
+  ));
   runApp(const MyApp());
 }
 
@@ -55,7 +60,7 @@ class _MyAppState extends State<MyApp> {
               borderSide: BorderSide.none,
             ),
           )),
-      home: Authenticate(),
+      home: SplashScreen(),
     );
   }
 }

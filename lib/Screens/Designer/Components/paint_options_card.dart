@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fyp/Screens/Designer/paint_options.dart';
+import 'package:fyp/Screens/Designer/design_options.dart';
 import 'paint_shade.dart';
 
 class PaintOptionsCard extends StatefulWidget {
@@ -22,15 +22,15 @@ class _PaintOptionsCardState extends State<PaintOptionsCard> {
         child: Column(
           children: [
             DropdownButton(
-              value: paintObj.selectedVendor,
-              items: paintObj.dropDownVendorItems,
+              value: designObj.selectedVendor,
+              items: designObj.dropDownVendorItems,
               onChanged: (value) {
                 setState(() {
-                  paintObj.selectedVendor = value as String;
-                  paintObj.paintShadeList = [];
-                  List<PaintTO>? vendorPaintList = paintObj.paintMap[paintObj.selectedVendor];
+                  designObj.selectedVendor = value as String;
+                  designObj.paintShadeList = [];
+                  List<PaintTO>? vendorPaintList = designObj.paintMap[designObj.selectedVendor];
                   for (int i = 0; i <  vendorPaintList!.length; i++) {
-                    paintObj.paintShadeList.add(vendorPaintList[i].code);
+                    designObj.paintShadeList.add(vendorPaintList[i].code);
                   }
                 });
               },
@@ -38,8 +38,8 @@ class _PaintOptionsCardState extends State<PaintOptionsCard> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                for (int i = 0; i < paintObj.paintShadeList.length; i++)
-                  PaintShade(paintCode: paintObj.paintShadeList[i], onTap: widget.onTap)
+                for (int i = 0; i < designObj.paintShadeList.length; i++)
+                  PaintShade(paintCode: designObj.paintShadeList[i], onTap: widget.onTap)
               ],
             )
           ],

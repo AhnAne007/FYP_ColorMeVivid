@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class RoomEquipmentObject extends StatelessWidget {
@@ -9,9 +11,7 @@ class RoomEquipmentObject extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: tapped,
-      child: Image(
-        image: AssetImage(img),
-      ),
+      child: Image.file(File(img)),
     );
   }
 }

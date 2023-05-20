@@ -6,9 +6,9 @@ typedef SaveImagePressed = void Function();
 class ImageOptions extends StatefulWidget {
   const ImageOptions(
       {Key? key,
-      required this.onGalleryPressed,
-      required this.savePressed,
-      required this.onSphereCapturePressed})
+        required this.onGalleryPressed,
+        required this.savePressed,
+        required this.onSphereCapturePressed})
       : super(key: key);
 
   final VoidCallback onGalleryPressed;
@@ -66,7 +66,9 @@ class _ImageOptionsState extends State<ImageOptions>
         height: 45,
         child: ElevatedButton.icon(
           onPressed: () {
-
+            widget.savePressed();
+            _animationController.reverse();
+            _isImageOptionsOpened = false;
           },
           style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll<Color>(Colors.deepPurpleAccent!),
@@ -76,21 +78,22 @@ class _ImageOptionsState extends State<ImageOptions>
                   )
               )
           ),
-          icon: const ImageIcon(AssetImage('assets/icons/360 icon.png')), label: const Text('360 Capture'),
+          icon: const ImageIcon(AssetImage('assets/icons/save icon.png')), label: const Text('Save Image'),
         ),
       ),
 
     );
   }
-
-    Widget captureSphereButton() {
+  bool alertVisible = true;
+  Widget captureSphereButton() {
     return Visibility(
       visible: _isImageOptionsOpened,
       child: SizedBox(
         width: 110,
         height: 45,
         child: ElevatedButton.icon(
-            onPressed: () {
+          onPressed: () {
+            if (alertVisible) {
               Alert(
                 context: context,
                 type: AlertType.info,
@@ -98,31 +101,35 @@ class _ImageOptionsState extends State<ImageOptions>
                 desc: "Google Street View is a great tool to capture 360 sphere panorama, head over there to Create sphere panorama and then import it from gallery",
                 buttons: [
                   DialogButton(
-                    child: Text(
-                      "OK",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
                     onPressed: () {
                       widget.onSphereCapturePressed();
                       _animationController.reverse();
+                      Navigator.pop(context);
                       _isImageOptionsOpened = false;
+                      alertVisible = false;
                     },
                     width: 120,
+                    child: const Text(
+                      "OK",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   )
                 ],
               ).show();
-
-          //     widget.onSphereCapturePressed();
-          // _animationController.reverse();
-          // _isImageOptionsOpened = false;
-        },
+            }
+            else{
+              widget.onSphereCapturePressed();
+              _animationController.reverse();
+              _isImageOptionsOpened = false;
+            }
+          },
           style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll<Color>(Colors.amberAccent!),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25)
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25)
+                  )
               )
-            )
           ),
           icon: const ImageIcon(AssetImage('assets/icons/360 icon.png')), label: const Text('360 Capture'),
         ),
@@ -157,9 +164,9 @@ class _ImageOptionsState extends State<ImageOptions>
 
   Widget buttonToggle() {
     return FloatingActionButton(
-      onPressed: animate,
-      backgroundColor: _buttonColor.value,
-      child: const  Icon(Icons.add_a_photo_outlined)
+        onPressed: animate,
+        backgroundColor: _buttonColor.value,
+        child: const  Icon(Icons.add_a_photo_outlined)
       // AnimatedIcon(
       //   icon: AnimatedIcons.menu_close,
       //   progress: _animationIcon,
@@ -184,17 +191,17 @@ class _ImageOptionsState extends State<ImageOptions>
       children: [
         Transform(
           transform:
-              Matrix4.translationValues(0.0, _translateButton.value * 3, 0.0),
+          Matrix4.translationValues(0.0, _translateButton.value * 3, 0.0),
           child: SaveImage(),
         ),
         Transform(
           transform:
-              Matrix4.translationValues(0.0, _translateButton.value * 2, 0.0),
+          Matrix4.translationValues(0.0, _translateButton.value * 2, 0.0),
           child: captureSphereButton(),
         ),
         Transform(
           transform:
-              Matrix4.translationValues(0.0, _translateButton.value, 0.0),
+          Matrix4.translationValues(0.0, _translateButton.value, 0.0),
           child: openGalleryButton(),
         ),
         buttonToggle()

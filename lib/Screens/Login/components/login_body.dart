@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fyp/Screens/Home/home_screen.dart';
 import 'package:fyp/Screens/Signup/signup_screen.dart';
 import 'package:fyp/constants.dart';
-
+import 'package:fyp/components/loading.dart';
 import '../../../Resources/auth_methods.dart';
 import '../../../components/already_have_an_account_acheck.dart';
 import '../login_screen.dart';
@@ -26,6 +26,7 @@ class _LogInBodyState extends State<LogInBody> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool isLoading = false;
     return LogInBackground(
       child: SingleChildScrollView(
         child: Column(
@@ -60,7 +61,7 @@ class _LogInBodyState extends State<LogInBody> {
                 decoration: InputDecoration(
                   hintText: 'Password',
                   fillColor: Colors.yellow[200],
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.lock,
                     color: Colors.black,
                   ),
@@ -83,21 +84,28 @@ class _LogInBodyState extends State<LogInBody> {
                 ),
               ),
             ),
+            Visibility(visible: isLoading, child: const LoadingWidget()),//For Allignment of Layout
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.amberAccent,
                     //padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle:
-                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                 onPressed: () async {
+                  setState(() {
+                    isLoading = true;
+                  });
                   String res = await AuthMethods().loginUser(
                       email: _emailController.text,
                       password: _passwordController.text);
                   if (res == "Success") {
+                    setState(() {
+                      isLoading = false;
+                    });
                     ClearFields();
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
@@ -121,7 +129,7 @@ class _LogInBodyState extends State<LogInBody> {
                 },
                 child: Text(
                   "Login".toUpperCase(),
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
             ),
@@ -136,9 +144,10 @@ class _LogInBodyState extends State<LogInBody> {
                 ),
               );},
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
-            ), //For Allignment of Layout
+            ),
+
           ],
         ),
       ),
@@ -194,8 +203,8 @@ class TextFieldContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       width: size.width * 0.8,
       //height: 40,
       decoration: BoxDecoration(

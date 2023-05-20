@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fyp/Screens/About/about_page.dart';
 import 'package:fyp/Screens/Designer/designer_body.dart';
 import 'package:fyp/Screens/Setttings/settings_screen.dart';
+import 'package:fyp/data_retreive.dart';
 
 import '../../components/drawer_header.dart';
 import '../../components/drawer_menu.dart';
@@ -55,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               textStyle:
                               TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                           onPressed: () async {
+                            // DataRetrieval().uploadImage("hggfd");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
